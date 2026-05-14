@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Happy+Monkey&family=Karla:ital,wght@0,200..800;1,200..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>Random pass generator</title>
+        <link rel="stylesheet" href="index.css"/>
+    </head>
+    <body>
+        <div id="main-body">
+            <h1>Generate a <span>random password</span></h1>
+            <p>Never use an insecure password again.</p>
+            <div id="options">
+                <label for="charset-select">Character set:</label>
+                <select id="charset-select">
+                    <option value="all">Letters + numbers + symbols</option>
+                    <option value="letters-numbers">Letters + numbers</option>
+                    <option value="letters-symbols">Letters + symbols</option>
+                    <option value="letters-only">Letters only</option>
+                </select>
+            </div>
+            <button onclick="renderRandomPassword()">
+                <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.30064 0.0463346C8.71692 0.177555 9 0.563602 9 1.00007V6.00007L13 6.00007C13.3729 6.00007 13.7148 6.20753 13.887 6.53826C14.0592 6.86899 14.0331 7.26806 13.8192 7.57353L6.81924 17.5735C6.56894 17.9311 6.11564 18.085 5.69936 17.9538C5.28309 17.8226 5 17.4365 5 17.0001L5 12.0001H1C0.627127 12.0001 0.285222 11.7926 0.113024 11.4619C-0.0591735 11.1312 -0.0330591 10.7321 0.180771 10.4266L7.18077 0.42661C7.43107 0.0690398 7.88436 -0.0848856 8.30064 0.0463346Z" fill="white"/>
+                </svg>
+                Generate passwords
+            </button>
+        </div>
+        <div id="seperation-line">
+            <svg width="100%" height="1" viewBox="0 0 446 1" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <line x1="0" y1="0.5" x2="446" y2="0.5" stroke="#2F3E53"/>
+            </svg>
+        </div>
+        <div class="box-container-alignment">
+            <div class="box-container">
+                <!-- The Background Box Graphic -->
+                <svg class="bg-box" width="211" height="39" viewBox="0 0 211 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="211" height="39" rx="6" fill="#273549"/>
+                </svg>
+
+                <!-- The Overlay Three Dots Inside a Container -->
+                <div id="box-1" class="dots-overlay" onclick="copyOnClick(this)">       
+                    <svg width="20" height="5" viewBox="0 0 20 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 2.5C5 3.88071 3.88071 5 2.5 5C1.11929 5 0 3.88071 0 2.5C0 1.11929 1.11929 0 2.5 0C3.88071 0 5 1.11929 5 2.5Z" fill="#202B3C"/>
+                        <path d="M12.5 2.5C12.5 3.88071 11.3807 5 10 5C8.61929 5 7.5 3.88071 7.5 2.5C7.5 1.11929 8.61929 0 10 0C11.3807 0 12.5 1.11929 12.5 2.5Z" fill="#202B3C"/>
+                        <path d="M17.5 5C18.8807 5 20 3.88071 20 2.5C20 1.11929 18.8807 0 17.5 0C16.1193 0 15 1.11929 15 2.5C15 3.88071 16.1193 5 17.5 5Z" fill="#202B3C"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="box-container">
+                <!-- The Background Box Graphic -->
+                <svg class="bg-box" width="211" height="39" viewBox="0 0 211 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="211" height="39" rx="6" fill="#273549"/>
+                </svg>
+
+                <!-- The Overlay Three Dots Inside a Container -->
+                <div id="box-2" class="dots-overlay" onclick="copyOnClick(this)">
+                    <svg width="20" height="5" viewBox="0 0 20 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 2.5C5 3.88071 3.88071 5 2.5 5C1.11929 5 0 3.88071 0 2.5C0 1.11929 1.11929 0 2.5 0C3.88071 0 5 1.11929 5 2.5Z" fill="#202B3C"/>
+                        <path d="M12.5 2.5C12.5 3.88071 11.3807 5 10 5C8.61929 5 7.5 3.88071 7.5 2.5C7.5 1.11929 8.61929 0 10 0C11.3807 0 12.5 1.11929 12.5 2.5Z" fill="#202B3C"/>
+                        <path d="M17.5 5C18.8807 5 20 3.88071 20 2.5C20 1.11929 18.8807 0 17.5 0C16.1193 0 15 1.11929 15 2.5C15 3.88071 16.1193 5 17.5 5Z" fill="#202B3C"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="box-container-alignment">
+            <div class="box-container">
+                <!-- The Background Box Graphic -->
+                <svg class="bg-box" width="211" height="39" viewBox="0 0 211 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="211" height="39" rx="6" fill="#273549"/>
+                </svg>
+
+                <!-- The Overlay Three Dots Inside a Container -->
+                <div id="box-3" class="dots-overlay" onclick="copyOnClick(this)">
+                    <svg width="20" height="5" viewBox="0 0 20 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 2.5C5 3.88071 3.88071 5 2.5 5C1.11929 5 0 3.88071 0 2.5C0 1.11929 1.11929 0 2.5 0C3.88071 0 5 1.11929 5 2.5Z" fill="#202B3C"/>
+                        <path d="M12.5 2.5C12.5 3.88071 11.3807 5 10 5C8.61929 5 7.5 3.88071 7.5 2.5C7.5 1.11929 8.61929 0 10 0C11.3807 0 12.5 1.11929 12.5 2.5Z" fill="#202B3C"/>
+                        <path d="M17.5 5C18.8807 5 20 3.88071 20 2.5C20 1.11929 18.8807 0 17.5 0C16.1193 0 15 1.11929 15 2.5C15 3.88071 16.1193 5 17.5 5Z" fill="#202B3C"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="box-container">
+                <!-- The Background Box Graphic -->
+                <svg class="bg-box" width="211" height="39" viewBox="0 0 211 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="211" height="39" rx="6" fill="#273549"/>
+                </svg>
+
+                <!-- The Overlay Three Dots Inside a Container -->
+                <div id="box-4" class="dots-overlay" onclick="copyOnClick(this)">
+                    <svg width="20" height="5" viewBox="0 0 20 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 2.5C5 3.88071 3.88071 5 2.5 5C1.11929 5 0 3.88071 0 2.5C0 1.11929 1.11929 0 2.5 0C3.88071 0 5 1.11929 5 2.5Z" fill="#202B3C"/>
+                        <path d="M12.5 2.5C12.5 3.88071 11.3807 5 10 5C8.61929 5 7.5 3.88071 7.5 2.5C7.5 1.11929 8.61929 0 10 0C11.3807 0 12.5 1.11929 12.5 2.5Z" fill="#202B3C"/>
+                        <path d="M17.5 5C18.8807 5 20 3.88071 20 2.5C20 1.11929 18.8807 0 17.5 0C16.1193 0 15 1.11929 15 2.5C15 3.88071 16.1193 5 17.5 5Z" fill="#202B3C"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div id="copy-toast">Copied to clipboard!</div>
+        <script src="index.js"></script>
+    </body>
+</html>
