@@ -9,6 +9,11 @@ body{
     letter-spacing: -2.5%;
 }
 
+div{
+    color :#1F2937;
+    background-color: #1F2937;
+}
+
 h1{
     /* Heading */
     font-family: 'Karla';
