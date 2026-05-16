@@ -10,6 +10,16 @@ const boxCycle = [boxOne,boxTwo,boxThree,boxFour]
 
 let password = "";
 
+const passLengthInput = document.getElementById("input-password-length");
+
+function getPasswordLength(){
+    const length = parseInt(passLengthInput.value, 10);
+    if(Number.isNaN(length) || length < 1){
+        return 16;
+    }
+    return length;
+}
+
 function getSelectedCharacterSet(){
     const selection = document.getElementById("charset-select").value;
     const selectedChars = [...letters];
@@ -32,8 +42,9 @@ function generateRandomPassword(){
         return password;
     }
 
-    for(let i = 0; i < 16; i++){
-        let randomIndex = Math.floor(Math.random() * characters.length);
+    const length = getPasswordLength();
+    for(let i = 0; i < length; i++){
+        const randomIndex = Math.floor(Math.random() * characters.length);
         password += characters[randomIndex];
     }
     return password;
