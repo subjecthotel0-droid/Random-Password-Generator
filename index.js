@@ -73,3 +73,13 @@ function copyOnClick(element){
         console.error("Copy failed:", error);
     });
 }
+
+function scalePage() {
+    const baseWidth = 1920; // Your design's width
+    const scale = Math.min(window.innerWidth / baseWidth, 1.5); // Limit max scale
+    document.body.style.transform = `scale(${scale})`;
+    document.body.style.width = `${baseWidth}px`; // Prevent horizontal scroll
+}
+
+window.addEventListener('resize', scalePage);
+scalePage(); // Initial call   
